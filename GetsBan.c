@@ -3,8 +3,8 @@
 
 int main() {
     int choice;
-    load_Data();
     system("CLS");
+    load_Data();
 
     // Welcome message for customers
     printf("==============================================================================================================================================================================================================\n\n");
@@ -50,22 +50,28 @@ int main() {
 
         switch (choice) {
             case 1:
+                system("CLS");
                 add_Client();
                 break;
             case 2:
+                system("CLS");
                 create_Account();
                 break;
             case 3:
+                system("CLS");
                 perform_Transaction();
                 break;
             case 4:
+                system("CLS");
                 display_Client_Details();
                 break;
             case 5:
+                system("CLS");
                 display_Account_Details();
                 break;
 
             case 6:
+                system("CLS");
                 printf("Enter the account number: ");
                 int account_Number;
                 scanf("%d", &account_Number);
@@ -73,13 +79,16 @@ int main() {
                 break;
 
             case 7:
+                system("CLS");
                 save_Data();
                 break;
             case 8:
+                system("CLS");
                 load_Data();
                 break;
 
             case 9:
+                system("CLS");
                 printf("Enter the account number to delete: ");
                 int account_Num_To_Delete;
                 scanf("%d", &account_Num_To_Delete);
@@ -87,6 +96,7 @@ int main() {
                 break;
 
             case 10:
+                system("CLS");
                 printf("Enter the client ID to delete: ");
                 int client_ID_To_Delete;
                 scanf("%d", &client_ID_To_Delete);
@@ -94,6 +104,7 @@ int main() {
                 break;
 
             case 11:
+                system("CLS");
                 save_Data();
                 exit(0);
             default:
