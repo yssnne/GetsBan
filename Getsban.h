@@ -67,22 +67,42 @@ void create_Password(Client clients[], int number_of_clients) {
         printf("Create your 4-digit password : ");
         scanf("%4d", &password);
 
-        if (password < 1000 || password > 9999) {
+        if (password < 1000 || password > 9999 || password == 1234) {
             printf("Password must be a 4-digit positive integer. Please try again.\n");
         }
-    } while (password < 1000 || password > 9999);
+    } while (password < 1000 || password > 9999 || password == 1234);
 
-    // Find the client with the provided ID
-    for (int i = 0; i < number_of_clients; i++) {
-        if (clients[i].id == id) {
-            // Update the password
-            clients[i].password = password;
-            printf("\n");
-            printf("Password created successfully.\n");
-            printf("\n\n");
-            return;
+    client_index = -1;
+    for (int i = 0; i < number_of_clients; i++)
+    {
+        if(clients[i].password == password) {
+            client_index = i;
+            break;
         }
     }
+
+    if(client_index != -1) {
+        printf("The password has been used before. Please try a different password.\n");
+        do {
+            printf("Create your new 4-digit password : ");
+            scanf("%4d", &password);
+
+            if (password < 1000 || password > 9999 || password == 1234 || clients[client_index].password == password) {
+                printf("Password must be a 4-digit positive integer and should not have been used before. Please try again.\n");
+            }
+        } while (password < 1000 || password > 9999 || password == 1234 || clients[client_index].password == password);
+    }
+
+        for (int i = 0; i < number_of_clients; i++) {
+            if (clients[i].id == id) {
+                // Update the password
+                clients[i].password = password;
+                printf("\n");
+                printf("Password created successfully.\n");
+                printf("\n\n");
+                return;
+            } 
+        }
 }
 
 void add_Client() {
